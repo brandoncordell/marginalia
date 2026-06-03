@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 8.1.3'
 
 gem 'bootsnap', require: false
+gem 'dry-initializer', '~> 3.2'
 gem 'image_processing', '~> 1.2'
 gem 'importmap-rails'
 gem 'jbuilder'
@@ -19,6 +20,8 @@ gem 'stimulus-rails'
 gem 'tailwindcss-rails'
 gem 'thruster', require: false
 gem 'turbo-rails'
+gem 'view_component', '~> 4.11'
+gem 'view_component-contrib', '~> 0.2.5'
 # gem "bcrypt", "~> 3.1.7"
 
 group :development do
