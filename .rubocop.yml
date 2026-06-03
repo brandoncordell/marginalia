@@ -10,6 +10,10 @@ Metrics/BlockLength:
   Exclude:
     - 'db/**/*.rb'
 
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*.rb'
+
 Style/Documentation:
   Exclude:
     - 'app/**/application_*.rb'
