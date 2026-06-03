@@ -25,6 +25,7 @@ gem 'view_component-contrib', '~> 0.2.5'
 # gem "bcrypt", "~> 3.1.7"
 
 group :development do
+  gem 'claude-on-rails'
   gem 'web-console'
 end
 

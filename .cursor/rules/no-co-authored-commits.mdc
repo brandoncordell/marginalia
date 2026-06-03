@@ -1,0 +1,29 @@
+---
+description: Never add co-author trailers to git commits
+alwaysApply: true
+---
+
+# No Co-Authored Commits
+
+Never add a `Co-authored-by:` trailer (or any co-author attribution) to git
+commits. This includes `Co-authored-by: Cursor`, `Co-authored-by: Claude`, or
+any agent/tool attribution. Commits must contain only the message itself.
+
+If the environment auto-appends a `Co-authored-by:` trailer when running
+`git commit`, rebuild the commit without it using plumbing so the trailer never
+lands:
+
+```bash
+tree=$(git rev-parse HEAD^{tree})
+parent=$(git rev-parse HEAD^)
+export GIT_AUTHOR_NAME=$(git log -1 --format='%an')
+export GIT_AUTHOR_EMAIL=$(git log -1 --format='%ae')
+export GIT_AUTHOR_DATE=$(git log -1 --format='%aI')
+export GIT_COMMITTER_NAME=$(git log -1 --format='%cn')
+export GIT_COMMITTER_EMAIL=$(git log -1 --format='%ce')
+export GIT_COMMITTER_DATE=$(git log -1 --format='%cI')
+new=$(git commit-tree "$tree" -p "$parent" -m "<commit message>")
+git reset --hard "$new"
+```
+
+Always verify with `git log -1 --format='%B'` that no trailer remains.
