@@ -1,0 +1,55 @@
+<nav class="sticky top-0 z-10 flex items-center gap-4 px-7 py-3 border-b border-solid border-border-soft bg-page-deep backdrop-blur-md [-webkit-backdrop-filter:blur(12px)]">
+  <div class="flex items-center gap-2.5 cursor-pointer pr-4 mr-1 border-r border-solid border-border" >
+    <%= link_to root_path, class: "flex items-center gap-2" do %>
+      <%= render Ui::Logo::Wordmark::Component.new(size: :sm) %>
+      <h1 class="text-2xl font-normal font-display">Marginalia</h1>
+    <% end %>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <span class="text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer transition-colors duration-[var(--dur-quick)] ease-[var(--ease-shelf)]">
+      Library
+    </span>
+
+    <span class="text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer transition-colors duration-[var(--dur-quick)] ease-[var(--ease-shelf)] text-ink-2 bg-transparent">
+      Shelves
+    </span>
+
+    <span class="text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer transition-colors duration-[var(--dur-quick)] ease-[var(--ease-shelf)] text-ink-2 bg-transparent">
+      Journal
+    </span>
+  </div>
+
+  <div class="flex flex-1 items-center gap-2 max-w-[420px]">
+    <label for="search" class="sr-only">Email</label>
+    <div class="grid grid-cols-1 flex-1">
+      <input
+        id="search"
+        type="search"
+        name="search"
+        placeholder="Search title, author, ISBN..."
+        class="col-start-1 row-start-1 block w-full rounded-lg bg-page border-border-ink py-1.5 pr-3 pl-10 text-base text-ink-2 outline-1 -outline-offset-1 outline-border placeholder:text-ink-4 focus:outline-2 focus:-outline-offset-2 focus:outline-[rgba(184,74,46,0.40)] sm:pl-9 sm:text-sm/6"
+      />
+      <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" class="pointer-events-none col-start-1 row-start-1 ml-3 size-5 self-center text-gray-400 sm:size-4 dark:text-gray-500">
+        <path fill-rule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clip-rule="evenodd" />
+      </svg>
+    </div>
+
+    <%= render Ui::Button::Component.new(color: :primary, size: :sm) do |button| %>
+      <% button.with_icon('plus', size: :sm) %>
+      Add Book
+    <% end %>
+  </div>
+
+  <% if current_user %>
+    <div class="flex items-center gap-3 ml-auto">
+      <%= render Ui::Avatar::Component.new(user: current_user, size: :sm) %>
+      <span class="text-sm font-medium text-ink-2 hidden sm:inline"><%= current_user.full_name %></span>
+      <%= button_to session_path,
+                    method: :delete,
+                    class: "text-sm font-medium px-3 py-1.5 rounded-md cursor-pointer transition-colors duration-[var(--dur-quick)] ease-[var(--ease-shelf)] text-ink-2 bg-transparent hover:text-ink" do %>
+        Sign out
+      <% end %>
+    </div>
+  <% end %>
+</nav>

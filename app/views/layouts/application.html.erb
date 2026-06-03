@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-page min-h-full">
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,8 +29,11 @@
     <title><%= content_for(:title) || "Marginalia" %></title>
   </head>
 
-  <body>
-    <%= render Ui::Navbar.new %>
-    <%= yield %>
+  <body class="h-full flex flex-col">
+      <%= render Ui::Navbar::Component.new(current_user:) %>
+
+      <div class="min-h-full flex-1">
+        <%= yield %>
+      </div>
   </body>
 </html>
