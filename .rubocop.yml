@@ -20,3 +20,13 @@ Style/Documentation:
     - 'config/**/*.rb'
     - 'db/**/*.rb'
     - 'test/**/*.rb'
+
+# `find_by_password_reset_token!` is a token finder defined by `generates_token_for`,
+# not a column-based dynamic finder — don't rewrite it to `find_by!`.
+Rails/DynamicFindBy:
+  AllowedMethods:
+    - find_by_password_reset_token!
+
+# The Rails 8 auth scaffold uses inline flash/mailer strings; not worth extracting to locales here.
+Rails/I18nLocaleTexts:
+  Enabled: false
