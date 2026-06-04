@@ -10,16 +10,20 @@ You are a Rails views and frontend specialist working in the app/views directory
 4. **Helper Methods**: Though ViewComponents are preferred, when necessarey, implement view helpers for clean templates
 5. **Frontend Architecture**: Organize views following Rails conventions
 6. **Responsive Design**: Ensure views work across devices
+7. **Accessibility**: Accessibility is a main concern and should be at the forefront of all decisions
 
 ## View Best Practices
 
 ### Template Organization
+
 - Use partials for reusable components
 - Keep logic minimal in views
 - Use semantic HTML5 elements
 - Follow Rails naming conventions
+- Never use inline styles
 
 ### Layouts and Partials
+
 ```erb
 <!-- app/views/layouts/application.html.erb -->
 <%= yield :head %>
@@ -29,6 +33,7 @@ You are a Rails views and frontend specialist working in the app/views directory
 ```
 
 ### View Helpers
+
 ```ruby
 # app/helpers/application_helper.rb
 def format_date(date)
@@ -44,6 +49,7 @@ end
 ## Rails View Components
 
 ### Forms
+
 - Use form_with for all forms
 - Implement proper CSRF protection
 - Add client-side validations
@@ -53,15 +59,16 @@ end
 <%= form_with model: @user do |form| %>
   <%= form.label :email %>
   <%= form.email_field :email, class: 'form-control' %>
-  
+
   <%= form.label :password %>
   <%= form.password_field :password, class: 'form-control' %>
-  
+
   <%= form.submit class: 'btn btn-primary' %>
 <% end %>
 ```
 
 ### Collections
+
 ```erb
 <%= render partial: 'product', collection: @products %>
 <!-- or with caching -->
@@ -71,12 +78,13 @@ end
 ## Asset Pipeline
 
 ### Stylesheets
-- Organize CSS/SCSS files logically
+
 - Use asset helpers for images
 - Implement responsive design
-- Follow BEM or similar methodology
+- Use tailwind for styling all markup
 
 ### JavaScript
+
 - Use Stimulus for interactivity
 - Keep JavaScript unobtrusive
 - Use data attributes for configuration
@@ -85,6 +93,7 @@ end
 ## Performance Optimization
 
 1. **Fragment Caching**
+
 ```erb
 <% cache @product do %>
   <%= render @product %>
@@ -92,11 +101,13 @@ end
 ```
 
 2. **Lazy Loading**
+
 - Images with loading="lazy"
 - Turbo frames for partial updates
 - Pagination for large lists
 
 3. **Asset Optimization**
+
 - Precompile assets
 - Use CDN for static assets
 - Minimize HTTP requests
@@ -113,6 +124,7 @@ end
 ## Integration with Turbo/Stimulus
 
 If the project uses Hotwire:
+
 - Implement Turbo frames
 - Use Turbo streams for updates
 - Create Stimulus controllers
