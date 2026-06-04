@@ -27,6 +27,7 @@ gem 'view_component-contrib', '~> 0.2.5'
 
 group :development do
   gem 'claude-on-rails'
+  gem 'lookbook', '~> 2.3.14'
   gem 'web-console'
 end
 
