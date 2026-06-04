@@ -11,15 +11,15 @@ module Ui
 
       style do
         base do
-          %w[rounded-lg border p-4]
+          %w[rounded-lg border border-border-soft p-4]
         end
 
         variants do
           surface do
-            paper { %w[border-border-soft bg-paper] }
-            page { %w[border-border bg-page] }
-            deep { %w[border-border bg-page-deep] }
-            shelf { %w[border-border bg-shelf] }
+            paper { %w[bg-paper] }
+            page { %w[bg-page] }
+            deep { %w[bg-page-deep] }
+            shelf { %w[bg-shelf] }
           end
         end
       end

@@ -5,15 +5,13 @@ module Ui
   module Card
     # Card component preview
     class ComponentPreview < ApplicationViewComponentPreview
-      # @label Playground
-      # @param surface "Changes the depth of the card" select { choices: [paper, page, deep, shelf] }
-      def default(surface: :paper)
-        render Ui::Card::Component.new(surface:) do
+      def default
+        render Ui::Card::Component.new do
           'Hello, world!'
         end
       end
 
-      # @!group Surface
+      # @!group Surfaces
       def paper
         render Ui::Card::Component.new(surface: :paper) do
           'Hello, world!'
@@ -41,6 +39,13 @@ module Ui
 
       # @!group size
       # @!endgroup
+
+      # @param surface "Changes the depth of the card" select { choices: [paper, page, deep, shelf] }
+      def playground(surface: :paper)
+        render Ui::Card::Component.new(surface: surface.to_sym) do
+          'Hello, world!'
+        end
+      end
     end
   end
 end

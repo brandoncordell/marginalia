@@ -14,7 +14,7 @@ module Ui
 
       style do
         base do
-          %w[inline-flex items-center justify-center shrink-0 rounded-full bg-rust text-page
+          %w[inline-flex items-center justify-center shrink-0 rounded-full bg-moss text-page
              font-medium uppercase select-none]
         end
 

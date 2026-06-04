@@ -5,26 +5,14 @@ module Ui
   module Icon
     # Icon component
     class Component < ApplicationViewComponent
-      delegate :lucide_icon, to: :helpers
+      delegate :icon, to: :helpers
 
-      option :icon, default: -> {}
-      option :size, default: -> { :md }
+      option :name, default: -> {}
+      option :size, default: -> { 5 }
+      option :classes, default: -> { '' }
 
       def call
-        lucide_icon(icon, width: icon_size, height: icon_size)
-      end
-
-      private
-
-      def icon_size
-        case size
-        when :sm
-          '16'
-        when :lg
-          '24'
-        else
-          '20'
-        end
+        icon name, variant: :mini, class: "size-#{size} #{classes}"
       end
     end
   end
