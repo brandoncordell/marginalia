@@ -11,11 +11,11 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   argument :attributes, type: :array, default: [], banner: 'attribute'
 
   def create_component_file
-    template 'component.rb', File.join('app/frontend/components', class_path, file_name, 'component.rb')
+    template 'component.rb', File.join('app/views/components', class_path, file_name, 'component.rb')
   end
 
   def create_template_file
-    template 'component.html.erb', File.join('app/frontend/components', class_path, file_name, 'component.html.erb')
+    template 'component.html.erb', File.join('app/views/components', class_path, file_name, 'component.html.erb')
   end
 
   def create_test_file
@@ -34,7 +34,7 @@ class ViewComponentGenerator < Rails::Generators::NamedBase
   def create_preview_file
     return if options[:skip_preview]
 
-    template 'preview.rb', File.join('app/frontend/components', class_path, file_name, 'preview.rb')
+    template 'preview.rb', File.join('app/views/components', class_path, file_name, 'preview.rb')
   end
 
   private

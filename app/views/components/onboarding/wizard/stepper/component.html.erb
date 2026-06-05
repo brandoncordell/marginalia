@@ -1,0 +1,9 @@
+<div class="flex items-center gap-0">
+  <% steps.each do |step| %>
+    <%= step %>
+
+    <% unless step == steps.last %>
+        <div class="flex-1 h-0.5 -mt-5 min-w-[14px] transition-colors duration-std ease-shelf bg-rust"></div>
+    <% end %>
+  <% end %>
+</div>

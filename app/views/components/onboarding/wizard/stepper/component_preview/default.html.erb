@@ -1,0 +1,16 @@
+<%
+steps = [
+    { step: 'Welcome', status: :complete },
+    { step: 'Database', status: :active },
+    { step: 'Network' },
+    { step: 'Finish' }
+].freeze
+%>
+
+<div class="mx-auto max-w-[300px]">
+    <%= render Onboarding::Wizard::Stepper::Component.new do |component| %>
+        <% steps.each_with_index do |step, index| %>
+            <%= component.with_step(index:, **step) %>
+        <% end %>
+    <% end %>
+</div>

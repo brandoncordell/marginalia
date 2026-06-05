@@ -25,8 +25,8 @@ module Marginalia
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.autoload_paths << Rails.root.join('app/frontend/components')
-    config.view_component.previews.paths << Rails.root.join('app/frontend/components')
+    config.autoload_paths << Rails.root.join('app/views/components')
+    config.view_component.previews.paths << Rails.root.join('app/views/components')
 
     # Render component previews in an isolated layout, free of app chrome (navbar, auth helpers).
     config.view_component.previews.default_layout = 'component_preview'

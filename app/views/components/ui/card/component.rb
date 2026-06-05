@@ -15,7 +15,7 @@ module Ui
 
       style do
         base do
-          %w[flex flex-col divide-y divide-border-soft rounded-lg border border-border shadow-shelf]
+          %w[flex flex-col divide-y divide-border-soft rounded-lg border border-border shadow-shelf overflow-hidden]
         end
 
         variants do

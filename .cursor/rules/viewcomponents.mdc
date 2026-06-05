@@ -1,8 +1,8 @@
 ---
 description: This rule file establishes standards for ViewComponent usage in the application. It complements the main `.cursorrules` file with specific ViewComponent practices
 globs:
-  - app/frontend/components/**/*_component.rb
-  - app/frontend/components/**/*_component.html.erb
+  - app/views/components/**/*_component.rb
+  - app/views/components/**/*_component.html.erb
 tags:
   - components
   - view_components
@@ -19,12 +19,12 @@ This rule file establishes standards for ViewComponent usage in the Marginalia p
 ## Key Rules
 
 1. **Directory Structure**
-   - All components MUST be in `app/frontend/components/`
-   - UI components MUST be in `app/frontend/components/ui/`
+   - All components MUST be in `app/views/components/`
+   - UI components MUST be in `app/views/components/ui/`
    - Namespace directories MUST match module structure
    - Each component MUST have its own directory matching its name
      ```
-     app/frontend/components/ui/episodes/row/
+     app/views/components/ui/episodes/row/
      ├── row_component.rb
      └── row_component.html.erb
      ```
@@ -34,8 +34,8 @@ This rule file establishes standards for ViewComponent usage in the Marginalia p
    - ✅ ALWAYS use CLI commands to move components:
      ```bash
      # Moving a component
-     mv app/frontend/components/episodes/row_component.rb app/frontend/components/ui/episodes/row/row_component.rb
-     mv app/frontend/components/episodes/row_component.html.erb app/frontend/components/ui/episodes/row/row_component.html.erb
+     mv app/views/components/episodes/row_component.rb app/views/components/ui/episodes/row/row_component.rb
+     mv app/views/components/episodes/row_component.html.erb app/views/components/ui/episodes/row/row_component.html.erb
      ```
    - This preserves:
      - Git history
@@ -141,7 +141,7 @@ mv old/component.rb new/component.rb
 
 ### Component Directory Structure
 ```
-app/frontend/components/ui/episodes/
+app/views/components/ui/episodes/
 ├── row/
 │   ├── row_component.rb
 │   └── row_component.html.erb

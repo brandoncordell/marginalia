@@ -15,7 +15,7 @@ SimpleCov.start 'rails' do
 
   group 'Controllers', 'app/controllers'
   group 'Models', 'app/models'
-  group 'Components', 'app/frontend/components'
+  group 'Components', 'app/views/components'
   group 'Jobs', 'app/jobs'
   group 'Libraries', 'lib'
 end
