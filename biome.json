@@ -1,19 +1,22 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
-	"formatter": {
-		"enabled": true,
-		"indentStyle": "space",
-		"lineWidth": 100
-	},
-	"linter": {
-		"enabled": true
-	},
-	"assist": {
-		"enabled": true
-	},
-	"css": {
-		"parser": {
-			"tailwindDirectives": true
-		}
-	}
+  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "files": {
+    "includes": ["**", "!Gemfile.lock", "!coverage"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true
+  },
+  "assist": {
+    "enabled": true
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  }
 }
