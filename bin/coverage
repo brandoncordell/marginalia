@@ -3,5 +3,5 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-# Coverage is already enabled by default in test/test_helper.rb.
+export COVERAGE=true
 bin/rails test "$@"
