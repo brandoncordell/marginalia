@@ -11,8 +11,8 @@ module Ui
         assert_text 'AL'
       end
 
-      test 'the sizes preview honors the size param' do
-        render_preview(:sizes, from: Ui::Avatar::ComponentPreview, params: { size: 'lg' })
+      test 'the large size preview renders the large variant' do
+        render_preview(:lg, from: Ui::Avatar::ComponentPreview)
 
         assert_selector 'span.size-11'
       end

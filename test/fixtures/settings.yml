@@ -1,0 +1,5 @@
+one:
+  onboarding_step: done
+  onboarded_at: 2026-01-01 00:00:00 UTC
+  operating_system: darwin/arm64
+  docker: false
