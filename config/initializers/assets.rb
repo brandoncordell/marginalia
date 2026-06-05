@@ -7,7 +7,3 @@ Rails.application.config.assets.version = '1.0'
 
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
-
-# JavaScript lives under app/frontend (alongside ViewComponents) instead of the
-# importmap-rails default of app/javascript, so add it to the asset load path.
-Rails.application.config.assets.paths << Rails.root.join('app/frontend/javascript')

@@ -59,7 +59,7 @@ swarm:
     
     stimulus:
       description: "Stimulus.js controllers and Turbo integration specialist"
-      directory: ./app/frontend/javascript
+      directory: ./app/javascript
       model: opus
       allowed_tools: [Read, Edit, Write, Bash, Grep, Glob, LS]
       prompt_file: .claude-on-rails/prompts/stimulus.md
