@@ -11,6 +11,13 @@ module Ui
         end
       end
 
+      def eyebrow
+        render Ui::Card::Component.new(title: 'Eyebrows!') do |component|
+          component.with_eyebrow(color: :ink) { 'Hello!' }
+          'This is a card with an eyebrow.'
+        end
+      end
+
       # @!group Surfaces
       def paper
         render Ui::Card::Component.new(surface: :paper) do
@@ -39,6 +46,12 @@ module Ui
 
       # @!group size
       # @!endgroup
+
+      def title
+        render Ui::Card::Component.new(title: 'Welcome to Your Library') do
+          'This is a card with a title.'
+        end
+      end
 
       # @param surface "Changes the depth of the card" select { choices: [paper, page, deep, shelf] }
       def playground(surface: :paper)

@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resource :setup
+  resource :onboarding
   resources :passwords, param: :token
   resource :session
 

@@ -1,0 +1,11 @@
+<h2 class="text-xl font-display mb-1">You're all set</h2>
+<p class="text-sm text-muted mb-4">
+  Your library is ready. Finishing marks setup complete and takes you to Marginalia.
+</p>
+
+<%# data-turbo-frame="_top": finishing redirects to the app, so we break out of
+    the "setup" frame and do a full-page navigation. %>
+<%= form_with url: setup_path, method: :patch, data: { turbo_frame: "_top" } do %>
+  <%= hidden_field_tag :step, "done" %>
+  <%= submit_tag "Enter Marginalia", class: "btn-primary w-full" %>
+<% end %>

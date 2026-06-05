@@ -1,0 +1,24 @@
+<h2 class="text-xl font-display mb-1">Create your account</h2>
+<p class="text-sm text-muted mb-4">This is the admin account for your library.</p>
+
+<%# scope: :user -> params[:user][...]; method: :patch -> SetupsController#update.
+    Hidden :step tells the controller which step is being submitted. %>
+<%= form_with model: @user, url: onboarding_path, method: :patch do |f| %>
+  <%= hidden_field_tag :step, "account" %>
+
+  <% if @user.errors.any? %>
+    <ul class="mb-3 text-sm text-red-600">
+      <% @user.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+    </ul>
+  <% end %>
+
+  <div class="grid grid-cols-2 gap-3">
+    <%= f.text_field :first_name, placeholder: "First name", class: "input" %>
+    <%= f.text_field :last_name, placeholder: "Last name", class: "input" %>
+  </div>
+  <%= f.email_field :email_address, placeholder: "you@example.com", autocomplete: "username", class: "input mt-3 w-full" %>
+  <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password", class: "input mt-3 w-full" %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm password", autocomplete: "new-password", class: "input mt-3 w-full" %>
+
+  <%= f.submit "Continue", class: "btn-primary mt-5 w-full" %>
+<% end %>
