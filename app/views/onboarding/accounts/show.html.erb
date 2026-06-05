@@ -1,0 +1,33 @@
+<%= render layout: "onboarding/shared/wizard_frame", locals: { current: "account" } do %>
+  <%= render Ui::Card::Component.new(title: "Create your account") do |card| %>
+    <div class="flex flex-col gap-y-6">
+      <p class="font-sans font-light text-ink-3">
+        This is the admin account for your library. You can invite more readers later.
+      </p>
+    </div>
+
+    <%= form_with model: @user, url: onboarding_account_path, method: :patch, id: "onboarding-account-form" do |f| %>
+      <% if @user.errors.any? %>
+        <ul class="mb-3 text-sm text-rust">
+          <% @user.errors.full_messages.each do |msg| %><li><%= msg %></li><% end %>
+        </ul>
+      <% end %>
+
+      <div class="grid grid-cols-2 gap-3">
+        <%= f.text_field :first_name, placeholder: "First name", class: "input" %>
+        <%= f.text_field :last_name, placeholder: "Last name", class: "input" %>
+      </div>
+
+      <%= f.email_field :email_address, placeholder: "you@example.com", autocomplete: "username", class: "input mt-3 w-full" %>
+      <%= f.password_field :password, placeholder: "Password", autocomplete: "new-password", class: "input mt-3 w-full" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password", autocomplete: "new-password", class: "input mt-3 w-full" %>
+
+      <% card.with_footer do %>
+        <%= link_to "Back", onboarding_welcome_path, class: "text-sm text-muted hover:text-default" %>
+        <%= render Ui::Button::Component.new(type: :submit, form: "onboarding-account-form") do %>
+          Continue
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -3,7 +3,15 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resource :onboarding
+  namespace :onboarding do
+    root to: 'entries#show'
+    resource :welcome, only: %i[show update]
+    resource :account, only: %i[show update]
+    resource :library, only: %i[show update]
+    # resource :metadata, only: %i[show update] # disabled until provider settings ship
+    resource :import, only: %i[show update]
+    resource :completion, only: %i[show create]
+  end
   resources :passwords, param: :token
   resource :session
 

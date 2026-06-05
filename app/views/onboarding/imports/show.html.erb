@@ -1,0 +1,19 @@
+<%= render layout: "onboarding/shared/wizard_frame", locals: { current: "import" } do %>
+  <h2 class="text-xl font-display mb-1">Import from Goodreads</h2>
+  <p class="text-sm text-muted mb-4">
+    Optional. Upload your Goodreads CSV export and we'll bring your shelves over.
+    You can always do this later.
+  </p>
+
+  <%= form_with url: onboarding_import_path, method: :patch, scope: :setting do |f| %>
+    <%= f.file_field :goodreads_csv, accept: ".csv", class: "block w-full text-sm" %>
+
+    <div class="mt-5 flex items-center justify-between">
+      <%= link_to "Back", onboarding_library_path, class: "text-sm text-muted hover:text-default" %>
+      <div class="flex items-center gap-3">
+        <%= f.submit "Skip", name: "skip", class: "btn-ghost" %>
+        <%= f.submit "Import & continue", class: "btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

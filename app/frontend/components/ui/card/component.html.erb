@@ -1,13 +1,17 @@
 <div class="<%= style(surface:) %>">
-  <div class="flex flex-col gap-y-2.5">
-    <%= eyebrow if eyebrow.present? %>
+  <div class="px-10 py-9">
+    <div class="flex flex-col gap-y-2.5">
+      <%= eyebrow if eyebrow.present? %>
 
-    <% if title.present? %>
-      <h2 class="font-display font-normal text-3xl tracking-normal leading-tight [font-variation-settings:'opsz'_32]"><%= title %></h2>
-    <% end %>
+      <% if title.present? %>
+        <h2 class="font-display font-normal text-3xl tracking-normal leading-tight [font-variation-settings:'opsz'_32]"><%= title %></h2>
+      <% end %>
+    </div>
+
+    <div>
+      <%= content %>
+    </div>
   </div>
 
-  <div>
-    <%= content %>
-  </div>
+  <%= footer if footer.present? %>
 </div>

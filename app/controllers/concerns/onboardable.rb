@@ -12,6 +12,6 @@ module Onboardable
   private
 
   def check_onboarding_state
-    redirect_to onboarding_path unless Setting.instance.onboarding_complete?
+    redirect_to onboarding_root_path unless Current.setting.onboarding_complete?
   end
 end

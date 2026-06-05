@@ -1,0 +1,4 @@
+<%= turbo_frame_tag "onboarding", class: "flex flex-col gap-y-6 w-full max-w-xl" do %>
+  <%= render "onboarding/shared/stepper", current: current %>
+  <%= yield %>
+<% end %>

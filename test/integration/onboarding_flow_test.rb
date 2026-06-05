@@ -167,4 +167,26 @@ class OnboardingFlowTest < ActionDispatch::IntegrationTest
     assert_includes response.body, onboarding_account_path
     assert_not_includes response.body, onboarding_import_path
   end
+
+  test 'going back and continuing does not skip steps' do
+    advance_onboarding_to!('import')
+
+    get onboarding_library_path
+
+    assert_equal 'library', Setting.instance.onboarding_step
+
+    patch onboarding_library_path
+
+    assert_redirected_to onboarding_import_path
+    assert_equal 'import', Setting.instance.onboarding_step
+
+    get onboarding_welcome_path
+
+    assert_equal 'welcome', Setting.instance.onboarding_step
+
+    patch onboarding_welcome_path
+
+    assert_redirected_to onboarding_account_path
+    assert_equal 'account', Setting.instance.onboarding_step
+  end
 end

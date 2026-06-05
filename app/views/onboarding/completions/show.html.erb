@@ -1,0 +1,10 @@
+<%= render layout: "onboarding/shared/wizard_frame", locals: { current: "done" } do %>
+  <h2 class="text-xl font-display mb-1">You're all set</h2>
+  <p class="text-sm text-muted mb-4">
+    Your library is ready. Finishing marks setup complete and takes you to Marginalia.
+  </p>
+
+  <%= form_with url: onboarding_completion_path, method: :post, data: { turbo_frame: "_top" } do %>
+    <%= submit_tag "Enter Marginalia", class: "btn-primary w-full" %>
+  <% end %>
+<% end %>

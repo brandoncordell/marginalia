@@ -6,8 +6,6 @@ module Ui
     module Wordmark
       # Logo wordmark component
       class Component < ApplicationViewComponent
-        include ViewComponentContrib::StyleVariants
-
         option :size, default: -> { :md }
 
         style do

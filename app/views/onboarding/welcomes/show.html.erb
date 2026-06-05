@@ -1,0 +1,78 @@
+<%= render layout: "onboarding/shared/wizard_frame", locals: { current: "welcome" } do %>
+  <%= render Ui::Card::Component.new(title: "Welcome to Your Library") do |card| %>
+    <% card.with_eyebrow(color: :rust) { "First-Run Setup" } %>
+
+    <div class="flex flex-col gap-y-6">
+      <p class="font-sans font-light text-ink-3">
+        With Marginalia, <em>you</em> own your data. Let's take a few minutes to get you set up.
+      </p>
+
+      <ul role="list" class="divide-y divide-border-soft bg-paper shadow-lifted outline-1 outline-gray-900/5 sm:rounded-xl">
+        <li class="flex items-center px-4 py-2.5 gap-2">
+          <%= icon 'shield-check', variant: :mini, class: 'size-4 text-ink-3' %>
+          <%= render Ui::Eyebrow::Component.new do %>
+            System check
+          <% end %>
+        </li>
+
+        <li class="flex items-center px-4 py-2.5 gap-4">
+          <%= icon 'circle-stack', class: 'size-5 text-ink-3' %>
+
+          <div class="flex flex-col gap-y-0.25">
+            <span class="font-sans font-medium text-ink">Database</span>
+            <span class="font-mono text-xxs tracking-wide text-ink-3">SQLite &middot; connected</span>
+          </div>
+
+          <div class="flex-1 flex justify-end">
+            <div class="flex items-center justify-center size-6 rounded-full bg-moss-tint">
+              <%= icon 'check', stroke_width: 3, class: 'size-3.5 text-moss' %>
+            </div>
+          </div>
+        </li>
+
+        <li class="flex items-center px-4 py-2.5 gap-4">
+          <%= icon 'server', class: 'size-5 text-ink-3' %>
+
+          <div class="flex flex-col gap-y-0.25">
+            <span class="font-sans font-medium text-ink">Storage</span>
+            <span class="font-mono text-xxs tracking-wide text-ink-3">/data &middot; writable &middot; 1.4 GB free</span>
+          </div>
+
+          <div class="flex-1 flex justify-end">
+            <div class="flex items-center justify-center size-6 rounded-full bg-moss-tint">
+              <%= icon 'check', stroke_width: 3, class: 'size-3.5 text-moss' %>
+            </div>
+          </div>
+        </li>
+
+        <li class="flex items-center px-4 py-2.5 gap-4">
+          <%= icon 'wifi', class: 'size-5 text-ink-3' %>
+
+          <div class="flex flex-col gap-y-0.25">
+            <span class="font-sans font-medium text-ink">Network</span>
+            <span class="font-mono text-xxs tracking-wide text-ink-3">reachable on your LAN</span>
+          </div>
+
+          <div class="flex-1 flex justify-end">
+            <div class="flex items-center justify-center size-6 rounded-full bg-moss-tint">
+              <%= icon 'check', stroke_width: 3, class: 'size-3.5 text-moss' %>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <span class="flex items-center justify-center gap-2">
+        <%= icon 'server-stack', stroke_width: 2, class: 'size-3 text-ink-3' %>
+        <span class="font-mono text-xxs tracking-wide text-ink-3">marginalia:0.1.0 &middot; <%= Current.setting.docker? ? 'docker &middot' : '' %> <%= Current.setting.operating_system %></span>
+      </span>
+    </div>
+
+    <% card.with_footer do %>
+      <%= form_with url: onboarding_welcome_path, method: :patch, class: 'flex flex-1 justify-end' do %>
+        <%= render Ui::Button::Component.new(type: :submit) do %>
+          Get started
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -5,8 +5,6 @@ module Ui
   module Eyebrow
     # Eyebrow component
     class Component < ApplicationViewComponent
-      include ViewComponentContrib::StyleVariants
-
       option :color, default: -> { :ink }
 
       erb_template <<-ERB

@@ -1,6 +1,0 @@
-<%# Everything that changes between steps lives inside this frame, so advancing
-    a step swaps only the card — the heading/logo in the layout stay put. %>
-<%= turbo_frame_tag "onboarding", class: "flex flex-col gap-y-6 w-full max-w-xl" do %>
-  <%= render "stepper", current: @step %>
-  <%= render @step %>
-<% end %>

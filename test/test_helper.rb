@@ -9,10 +9,9 @@ require 'rails/test_help'
 # Minitest 6 loads plugins explicitly (see active_support/testing/autorun.rb).
 # Without this, SimpleCov's at_exit hook never runs — Minitest's inner at_exit
 # calls exit before other handlers — so only .resultset.json is written.
-if ENV['COVERAGE'] == 'true' && defined?(Minitest) && Minitest.respond_to?(:load)
-  Minitest.load :simplecov
-end
+Minitest.load :simplecov if ENV['COVERAGE'] == 'true' && defined?(Minitest) && Minitest.respond_to?(:load)
 
+require_relative 'test_helpers/onboarding_test_helper'
 require_relative 'test_helpers/session_test_helper'
 
 module ActiveSupport

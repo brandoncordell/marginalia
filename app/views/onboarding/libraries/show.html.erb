@@ -1,0 +1,15 @@
+<%= render layout: "onboarding/shared/wizard_frame", locals: { current: "library" } do %>
+  <h2 class="text-xl font-display mb-1">Library location</h2>
+  <p class="text-sm text-muted mb-4">
+    Marginalia stores your database and uploads under
+    <code class="font-mono text-xs"><%= ENV.fetch("MARGINALIA_DATA_DIR", "/config") %></code>.
+    You can change this later in settings.
+  </p>
+
+  <%= form_with url: onboarding_library_path, method: :patch do %>
+    <div class="mt-5 flex items-center justify-between">
+      <%= link_to "Back", onboarding_account_path, class: "text-sm text-muted hover:text-default" %>
+      <%= submit_tag "Continue", class: "btn-primary" %>
+    </div>
+  <% end %>
+<% end %>

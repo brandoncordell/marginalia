@@ -5,16 +5,17 @@ module Ui
   module Card
     # Card component
     class Component < ApplicationViewComponent
-      include ViewComponentContrib::StyleVariants
-
       renders_one :eyebrow, Ui::Eyebrow::Component
+      renders_one :footer, lambda { |&block|
+        content_tag :div, class: 'bg-page-deep px-10 py-4 flex items-center justify-between', &block
+      }
 
       option :title, default: -> {}
       option :surface, default: -> { :paper }
 
       style do
         base do
-          %w[flex flex-col rounded-lg border border-border-soft px-10 py-9 gap-4 shadow-shelf]
+          %w[flex flex-col divide-y divide-border-soft rounded-lg border border-border shadow-shelf]
         end
 
         variants do

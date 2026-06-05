@@ -5,8 +5,6 @@ module Ui
   module Avatar
     # Renders a user's initials inside a circular badge.
     class Component < ApplicationViewComponent
-      include ViewComponentContrib::StyleVariants
-
       option :user
       option :size, default: -> { :md }
 
