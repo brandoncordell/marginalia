@@ -17,7 +17,7 @@ module Ui
       style do
         base do
           %w[inline-flex items-center text-semibold rounded-md border cursor-pointer
-             whitespace-nowrap text-sm]
+             whitespace-nowrap text-sm disabled:cursor-not-allowed disabled:opacity-50]
         end
 
         variants do
@@ -38,8 +38,7 @@ module Ui
 
       def call
         content_tag :button, class: style(color:, size:), type: type, **(form.present? ? { form: form } : {}) do
-          icon if icon?
-          content
+          safe_join([(icon if icon?), content])
         end
       end
     end

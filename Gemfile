@@ -43,6 +43,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'capybara-playwright-driver'
   gem 'simplecov', '~> 1.0.0.rc1', require: false
 end

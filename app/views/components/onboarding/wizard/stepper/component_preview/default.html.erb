@@ -8,7 +8,7 @@ steps = [
 %>
 
 <div class="mx-auto max-w-[300px]">
-    <%= render Onboarding::Wizard::Stepper::Component.new do |component| %>
+    <%= component 'onboarding/wizard/stepper', steps: do |component| %>
         <% steps.each_with_index do |step, index| %>
             <%= component.with_step(index:, **step) %>
         <% end %>

@@ -1,0 +1,5 @@
+<div class="mx-auto max-w-sm">
+    <%= form_with url: "#", scope: :user, method: :get, builder: TailwindFormBuilder do |form| %>
+        <%= form.text_field :email %>
+    <% end %>
+</div>

@@ -2,8 +2,11 @@
 # frozen_string_literal: true
 
 require 'fileutils'
+require 'playwright'
 
 APP_ROOT = File.expand_path('..', __dir__)
+
+playwright_version = Playwright::COMPATIBLE_PLAYWRIGHT_VERSION.strip
 
 def system!(*)
   system(*, exception: true)
@@ -17,10 +20,9 @@ FileUtils.chdir APP_ROOT do
   puts '== Installing dependencies =='
   system('bundle check') || system!('bundle install')
 
-  # puts "\n== Copying sample files =="
-  # unless File.exist?("config/database.yml")
-  #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
-  # end
+  puts "\n== Installing Playwright =="
+  system! "pnpm add -D playwright@#{playwright_version}"
+  system! "pnpm playwright install"
 
   puts "\n== Preparing database =="
   system! 'bin/rails db:prepare'

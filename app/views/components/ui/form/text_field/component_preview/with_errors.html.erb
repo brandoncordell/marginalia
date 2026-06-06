@@ -1,0 +1,8 @@
+<% user = User.new %>
+<% user.errors.add(:first_name, :blank) %>
+
+<div class="mx-auto max-w-sm">
+    <%= form_with model: user, url: "#", method: :get, builder: TailwindFormBuilder do |form| %>
+        <%= form.text_field :first_name, trailing_icon: "exclamation-circle" %>
+    <% end %>
+</div>

@@ -5,5 +5,6 @@ class ApplicationController < ActionController::Base
   include Onboardable
 
   allow_browser versions: :modern
+  default_form_builder TailwindFormBuilder
   stale_when_importmap_changes
 end

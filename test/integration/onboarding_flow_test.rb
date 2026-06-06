@@ -53,6 +53,21 @@ class OnboardingFlowTest < ActionDispatch::IntegrationTest
     assert_includes response.body, 'email_address'
   end
 
+  test 'account form is progressively enhanced to gate the continue button' do
+    advance_onboarding_to!('account')
+
+    get onboarding_account_path
+
+    assert_response :success
+    # Stimulus form controller is wired onto the form so JS can disable submit.
+    assert_select 'form#onboarding-account-form[data-controller=?]', 'form'
+    assert_select 'form#onboarding-account-form[data-action*=?]', 'form#refresh'
+    # Required attributes give the native (no-JS) baseline and feed checkValidity.
+    assert_select 'input[name=?][required]', 'user[first_name]'
+    assert_select 'input[name=?][required]', 'user[email_address]'
+    assert_select 'input[name=?][required]', 'user[password]'
+  end
+
   test 'account step re-renders with errors for invalid input' do
     advance_onboarding_to!('account')
 
