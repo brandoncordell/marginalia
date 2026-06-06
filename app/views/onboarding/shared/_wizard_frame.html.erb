@@ -1,4 +1,18 @@
-<%= turbo_frame_tag "onboarding", class: "flex flex-col gap-y-6 w-full max-w-xl" do %>
-  <%= render "onboarding/shared/stepper", current: current %>
+<%= turbo_frame_tag "onboarding", class: "flex flex-col gap-y-6 w-full max-w-xl", data: { turbo_action: 'advance' } do %>
+  <%= component 'onboarding/wizard/stepper' do |component| %>
+    <% Setting::ONBOARDING_STEPS.each_with_index do |step, index| %>
+      <% case index <=> Current.setting.furthest_index %>
+      <% when -1 %>
+        <% status = :complete %>
+      <% when 0 %>
+        <% status = :active %>
+      <% when 1 %>
+        <% status = :pending %>
+      <% end %>
+
+      <%= component.with_step(index:, step: step.titleize, status:) %>
+    <% end %>
+  <% end %>
+
   <%= yield %>
 <% end %>

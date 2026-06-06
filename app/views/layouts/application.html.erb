@@ -30,7 +30,7 @@
   </head>
 
   <body class="h-full flex flex-col">
-      <%= render Ui::Navbar::Component.new(current_user:) %>
+      <%= component 'ui/navbar', current_user: %>
 
       <div class="min-h-full flex-1">
         <%= yield %>

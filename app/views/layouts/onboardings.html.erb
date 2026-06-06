@@ -29,9 +29,9 @@
     <title><%= content_for(:title) || "Marginalia Setup" %></title>
   </head>
 
-  <body class="h-full flex flex-col items-center justify-center gap-y-10">
+  <body class="h-full flex flex-col items-center gap-y-10 mt-10">
     <div class="flex items-center gap-2">
-      <%= render Ui::Logo::Wordmark::Component.new(size: :lg) %>
+      <%= component 'ui/logo/wordmark', size: :lg %>
       <h1 class="text-4xl font-normal font-display">Marginalia</h1>
     </div>
 

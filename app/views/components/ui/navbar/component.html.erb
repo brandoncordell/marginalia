@@ -1,7 +1,7 @@
 <nav class="sticky top-0 z-10 flex items-center gap-4 px-7 py-3 border-b border-solid border-border-soft bg-page-deep backdrop-blur-md [-webkit-backdrop-filter:blur(12px)]">
   <div class="flex items-center gap-2.5 cursor-pointer pr-4 mr-1 border-r border-solid border-border" >
     <%= link_to root_path, class: "flex items-center gap-2" do %>
-      <%= render Ui::Logo::Wordmark::Component.new(size: :sm) %>
+      <%= component 'ui/logo/wordmark', size: :sm %>
       <h1 class="text-2xl font-normal font-display">Marginalia</h1>
     <% end %>
   </div>
@@ -35,7 +35,7 @@
       </svg>
     </div>
 
-    <%= render Ui::Button::Component.new(color: :primary, size: :sm) do |button| %>
+    <%= component 'ui/button', color: :primary, size: :sm do |button| %>
       <% button.with_icon('plus', size: :sm) %>
       Add Book
     <% end %>
@@ -43,7 +43,7 @@
 
   <% if current_user %>
     <div class="flex items-center gap-3 ml-auto">
-      <%= render Ui::Avatar::Component.new(user: current_user, size: :sm) %>
+      <%= component 'ui/avatar', user: current_user, size: :sm %>
       <span class="text-sm font-medium text-ink-2 hidden sm:inline"><%= current_user.full_name %></span>
       <%= button_to session_path,
                     method: :delete,

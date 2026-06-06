@@ -1,5 +1,5 @@
 <%= render layout: "onboarding/shared/wizard_frame", locals: { current: "account" } do %>
-  <%= render Ui::Card::Component.new(title: "Create your account") do |card| %>
+  <%= component 'ui/card', title: "Create your account" do |card| %>
     <div class="flex flex-col gap-y-6">
       <p class="font-sans font-light text-ink-3">
         This is the admin account for your library. You can invite more readers later.
@@ -24,7 +24,7 @@
 
       <% card.with_footer do %>
         <%= link_to "Back", onboarding_welcome_path, class: "text-sm text-muted hover:text-default" %>
-        <%= render Ui::Button::Component.new(type: :submit, form: "onboarding-account-form") do %>
+        <%= component 'ui/button', type: :submit, form: "onboarding-account-form" do %>
           Continue
         <% end %>
       <% end %>
