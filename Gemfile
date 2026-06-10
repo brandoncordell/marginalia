@@ -22,7 +22,7 @@ gem 'stimulus-rails'
 gem 'tailwindcss-rails'
 gem 'thruster', require: false
 gem 'turbo-rails'
-gem 'view_component', '~> 4.11'
+gem 'view_component', '~> 4.12'
 gem 'view_component-contrib', '~> 0.2.5'
 
 group :development do
